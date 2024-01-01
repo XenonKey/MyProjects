@@ -1,29 +1,29 @@
 from libs import *
 from libs2 import *
 import sys
+import time
 
-# book = {
-#     "title": "1984",
-#     "author": "George Orwell",
-#     "year": 1949,
-#     "pages": 328,
-#     "is_bestseller": True
-# }
-#
-#
-# res1 = list(book.keys())
-# print(res1)
-#
-# res2 = list(book)
-# print(res2)
+def my_decorator(func):
+    def wrapper(x):
+        start_time = time.time()
+        func(x)
+        end_time = time.time()
+        return f'Время перебора типа {type(x)}: {end_time - start_time}'
+    return wrapper
 
-lst = [x for x in range(1000)]
-gen = (x for x in range(1000))
 
-print(lst)
-print(type(lst))
-print(sys.getsizeof(lst))
 
-print(gen)
-print(type(gen))
-print(sys.getsizeof(gen))
+lst = [x for x in range(100000000)]
+gen = (x for x in range(100000000))
+
+
+def count_range(iter):
+    loc_count = 0
+    for i in iter:
+        loc_count += 1
+    return loc_count
+
+count_range = my_decorator(count_range)
+
+print(count_range(lst))
+print(count_range(gen))
