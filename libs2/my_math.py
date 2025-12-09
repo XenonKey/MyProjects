@@ -4,3 +4,7 @@ def say_hi():
 
 def multiply(a: int, b) -> int:
     return a * b
+
+
+def mult_by_10(a) -> int:
+    return a * 10
