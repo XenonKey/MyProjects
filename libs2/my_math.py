@@ -1,6 +1,6 @@
 
 def say_hi():
-    return 'Hello, User!!!'
+    return 'Hello!'
 
 
 def multiply(a: int, b) -> int:
