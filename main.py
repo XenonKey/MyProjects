@@ -17,15 +17,8 @@ from libs import *
 # a.log('Giorgi_1999', 12345678)
 
 
-@timing
-def mult_my_list(lst, x):
-    """Умножает итерируемый объект на введенный аргумент"""
-    new_list = []
 
-    for i in lst:
-        new_list.append(i * x)
 
-    print(new_list)
 
 
 
